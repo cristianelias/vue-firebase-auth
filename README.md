@@ -1,5 +1,9 @@
 # vue-firebase-auth
 
+## Functionality by branches
+ - `00/only-vue-firebase`: A basic auth flow with just VueJS2 + Firebase.
+ - `01/vuex-firebase`:     Adds Vuex.js for state management `[WIP]`
+
 ## Project setup
 ```
 nvm use
@@ -10,12 +14,6 @@ npm install
 Place Firebase API options in:
 ```
 ./configs/firebase_config.json
-```
-
-## Firebase API config for production
-Firebase API options are loaded from the NODE_ENV variables specified here:
-```
-./configs/firebase.json => #asJSONForProduction
 ```
 
 ### Compiles and hot-reloads for development
