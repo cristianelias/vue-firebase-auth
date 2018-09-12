@@ -8,8 +8,6 @@ Vue.config.productionTip = false
 
 let app
 
-console.log(`variables de entorno: ${JSON.stringify(process.env)}`)
-
 fb.auth().onAuthStateChanged(() => {
   if (!app) {
     new Vue({
