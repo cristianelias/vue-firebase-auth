@@ -1,5 +1,5 @@
 import firebase from 'firebase'
 
-firebase.initializeApp(require('./firebase_config.json'))
+firebase.initializeApp({})
 
 export default firebase
