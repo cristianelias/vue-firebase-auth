@@ -5,14 +5,11 @@
 </template>
 
 <script>
-import fb from '../configs/firebase'
-import _ from 'lodash'
-
 export default {
   name: 'Account',
   data() {
     return {
-      email: _.get(fb.auth(), 'currentUser.email', ''),
+      email: this.$store.state.user.email,
     }
   },
   computed: {

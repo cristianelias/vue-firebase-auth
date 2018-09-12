@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import store from './store/store'
+
 import Home from './views/Home.vue'
 import LogIn from './views/LogIn.vue'
 import SignUp from './views/SignUp.vue'
 import Account from './views/Account.vue'
-
-import fb from './configs/firebase'
 
 Vue.use(Router)
 
@@ -43,7 +43,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const logged = fb.auth().currentUser
+  const logged = store.getters.userEmail
   const requiresAuth = to.matched.some(
     currentMatchedRoute => currentMatchedRoute.meta.authentication
   )

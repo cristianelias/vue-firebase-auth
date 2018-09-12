@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/store'
 import fb from './configs/firebase'
 
 Vue.config.productionTip = false
 
 let app
 
-fb.auth().onAuthStateChanged(() => {
+fb.auth().onAuthStateChanged(user => {
   if (!app) {
     new Vue({
       router,
@@ -17,11 +17,15 @@ fb.auth().onAuthStateChanged(() => {
     }).$mount('#app')
   }
 
-  if (fb.auth().currentUser) {
+  if (user) {
+    store.dispatch('addUser', user)
+
     router.push({
       path: '/account',
     })
   } else {
+    store.dispatch('removeUser')
+
     router.push({
       path: '/',
     })
