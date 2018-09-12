@@ -6,16 +6,12 @@ import fb from './configs/firebase'
 
 Vue.config.productionTip = false
 
-let app
-
 fb.auth().onAuthStateChanged(user => {
-  if (!app) {
-    new Vue({
-      router,
-      store,
-      render: h => h(App),
-    }).$mount('#app')
-  }
+  new Vue({
+    router,
+    store,
+    render: h => h(App),
+  }).$mount('#app')
 
   if (user) {
     store.dispatch('addUser', user)
